@@ -12,23 +12,26 @@ class Greeter {
     this.todaysDt.tz('Europe/London');
   }
   greet(name) {
-    console.log(`-------todayDt-${this.todaysDt}`);
-
+    let response;
+    console.log(`todays date and time is:- ${this.todaysDt}`);
     if (
       this.todaysDt.isSameOrAfter(new Moment().set(TWENTY_TWO)) ||
       this.todaysDt.isBefore(new Moment().set(SIX))
     ) {
-      return `Good night ${this.capitalizeFirstLetter(name)}`;
+      response = `Good night ${this.capitalizeFirstLetter(name)}`;
     } else if (
       this.todaysDt.isSameOrAfter(new Moment().set(EIGHTEEN))
     ) {
-      return `Good evening ${this.capitalizeFirstLetter(name)}`;
+      response = `Good evening ${this.capitalizeFirstLetter(name)}`;
     } else if (
       this.todaysDt.isSameOrBefore(new Moment().set(TWELVE))
     ) {
-      return `Good morning ${this.capitalizeFirstLetter(name)}`;
+      response = `Good morning ${this.capitalizeFirstLetter(name)}`;
+    } else {
+      response = `Hello ${this.capitalizeFirstLetter(name)}`;
     }
-    return `Hello ${this.capitalizeFirstLetter(name)}`;
+    console.log(`${response}`);
+    return response;
   }
 
   capitalizeFirstLetter(name) {
