@@ -1,6 +1,6 @@
 class Greeter {
   greet(name) {
-    return `Hello Amit`;
+    return `Hello ${name}`;
   }
 }
 
