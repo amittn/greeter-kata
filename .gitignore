@@ -1,0 +1,6 @@
+public
+node_modules
+*.tar.gz
+.env
+**/translations/en
+.nyc_output
