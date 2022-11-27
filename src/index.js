@@ -14,9 +14,13 @@ class Greeter {
         this.todaysDt.isSameOrBefore(new Moment(this.todaysDt)
             .set('hour', '12').set('minute', '00'))
     ) {
-      return `Good morning ${capitalize(name.trim())}`;
+      return `Good morning ${this.capitalizeFirstLetter(name)}`;
     }
-    return `Hello ${capitalize(name.trim())}`;
+    return `Hello ${this.capitalizeFirstLetter(name)}`;
+  }
+
+  capitalizeFirstLetter(name) {
+    return `${capitalize(name.trim())}`;
   }
 }
 
