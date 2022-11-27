@@ -17,6 +17,9 @@
     "prettier": "^2.3.2",
     "prettier-eslint": "^12.0.0"
   },
+  "dependencies": {
+    "capitalize": "^2.0.4"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/amittn/greeter-kata.git"

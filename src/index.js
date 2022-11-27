@@ -1,6 +1,7 @@
+const capitalize = require('capitalize');
 class Greeter {
   greet(name) {
-    return `Hello ${name.trim()}`;
+    return `Hello ${capitalize(name.trim())}`;
   }
 }
 

@@ -13,4 +13,9 @@ describe('Testing the Greeter', () => {
     const output = 'Hello Amit';
     expect(geteter.greet(' Amit ')).toEqual(output);
   });
+  test('it should capitalizes and greet', () => {
+    const geteter = new Greeter();
+    const output = 'Hello Amit';
+    expect(geteter.greet('amit ')).toEqual(output);
+  });
 });
