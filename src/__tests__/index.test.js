@@ -1,6 +1,7 @@
 /* globals describe, expect,test,jest
  */
 const {Greeter} = require('../index.js');
+const each = require('jest-each').default;
 const ERR_MSG = 'name is a mandatory field';
 
 describe('Testing the Greeter', () => {
@@ -58,18 +59,14 @@ describe('Testing the Greeter', () => {
     const output = 'Good night Amit';
     expect(geteter.greet(' amit ')).toEqual(output);
   });
-  test('it should throw error for null name value', () => {
+  each([
+    [undefined],
+    [' '],
+    [''],
+    [null],
+  ]).test('it should throw error for name validation', (givenNameInput) => {
     const geteter = new Greeter();
-    expect(() => geteter.greet(null)).toThrowError(new Error(ERR_MSG));
-  });
-
-  test('it should throw error for blank name values', () => {
-    const geteter = new Greeter();
-    expect(() =>geteter. greet('')).toThrowError(new Error(ERR_MSG));
-  });
-
-  test('it should throw error for white space name values', () => {
-    const geteter = new Greeter();
-    expect(() => geteter.greet(' ')).toThrowError(new Error(ERR_MSG));
+    expect(() => geteter.greet(givenNameInput))
+        .toThrowError(new Error(ERR_MSG));
   });
 });
