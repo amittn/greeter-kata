@@ -1,5 +1,6 @@
 public
 node_modules
+coverage
 *.tar.gz
 .env
 **/translations/en
