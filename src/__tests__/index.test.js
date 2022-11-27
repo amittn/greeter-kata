@@ -45,4 +45,16 @@ describe('Testing the Greeter', () => {
     const output = 'Good night Amit';
     expect(geteter.greet('amit ')).toEqual(output);
   });
+  test('it should greet good night at dawn', () => {
+    Date.now = jest.fn(() => new Date('2022-11-27T05:59:37.0'));
+    const geteter = new Greeter();
+    const output = 'Good night Amit';
+    expect(geteter.greet(' amit ')).toEqual(output);
+  });
+  test('it should greet good night for edge case', () => {
+    Date.now = jest.fn(() => new Date('2022-11-27T22:00:00.0'));
+    const geteter = new Greeter();
+    const output = 'Good night Amit';
+    expect(geteter.greet(' amit ')).toEqual(output);
+  });
 });
