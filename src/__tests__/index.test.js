@@ -33,4 +33,10 @@ describe('Testing the Greeter', () => {
     const output = 'Good evening Amit';
     expect(geteter.greet('amit ')).toEqual(output);
   });
+  test('it should greet night', () => {
+    Date.now = jest.fn(() => new Date('2022-11-27T22:33:37.0'));
+    const geteter = new Greeter();
+    const output = 'Good night Amit';
+    expect(geteter.greet('amit ')).toEqual(output);
+  });
 });
