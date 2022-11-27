@@ -1,6 +1,7 @@
 /* globals describe, expect,test,jest
  */
 const {Greeter} = require('../index.js');
+const ERR_MSG = 'name is a mandatory field';
 
 describe('Testing the Greeter', () => {
   test('it should return Hello', () => {
@@ -56,5 +57,19 @@ describe('Testing the Greeter', () => {
     const geteter = new Greeter();
     const output = 'Good night Amit';
     expect(geteter.greet(' amit ')).toEqual(output);
+  });
+  test('it should throw error for null name value', () => {
+    const geteter = new Greeter();
+    expect(() => geteter.greet(null)).toThrowError(new Error(ERR_MSG));
+  });
+
+  test('it should throw error for blank name values', () => {
+    const geteter = new Greeter();
+    expect(() =>geteter. greet('')).toThrowError(new Error(ERR_MSG));
+  });
+
+  test('it should throw error for white space name values', () => {
+    const geteter = new Greeter();
+    expect(() => geteter.greet(' ')).toThrowError(new Error(ERR_MSG));
   });
 });

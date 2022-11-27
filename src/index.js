@@ -14,6 +14,7 @@ class Greeter {
   greet(name) {
     let response;
     console.log(`todays date and time is:- ${this.todaysDt}`);
+    this.validateName(name);
     if (
       this.todaysDt.isSameOrAfter(new Moment().set(TWENTY_TWO)) ||
       this.todaysDt.isBefore(new Moment().set(SIX))
@@ -36,6 +37,12 @@ class Greeter {
 
   capitalizeFirstLetter(name) {
     return `${capitalize(name.trim())}`;
+  }
+
+  validateName(name) {
+    if (!(name && name.trim())) {
+      throw new Error(`name is a mandatory field`);
+    }
   }
 }
 
