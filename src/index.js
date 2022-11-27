@@ -23,8 +23,8 @@ class Greeter {
     ) {
       return `Good evening ${this.capitalizeFirstLetter(name)}`;
     } else if (
-      this.todaysDt.isSameOrAfter(new Moment().set(TWENTY_TWO)) &&
-        this.todaysDt.isSameOrBefore(new Moment().add(1, 'days').set(SIX))
+      this.todaysDt.isSameOrAfter(new Moment().set(TWENTY_TWO)) ||
+        this.todaysDt.isBefore(new Moment().set(SIX))
     ) {
       return `Good night ${this.capitalizeFirstLetter(name)}`;
     }

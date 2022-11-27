@@ -21,20 +21,26 @@ describe('Testing the Greeter', () => {
     const output = 'Hello Amit';
     expect(geteter.greet('amit ')).toEqual(output);
   });
-  test('it should greet morning', () => {
+  test('it should greet good morning', () => {
     Date.now = jest.fn(() => new Date('2022-11-27T06:33:37.0'));
     const geteter = new Greeter();
     const output = 'Good morning Amit';
     expect(geteter.greet('amit ')).toEqual(output);
   });
-  test('it should greet evening', () => {
+  test('it should greet good evening', () => {
     Date.now = jest.fn(() => new Date('2022-11-27T18:33:37.0'));
     const geteter = new Greeter();
     const output = 'Good evening Amit';
     expect(geteter.greet('amit ')).toEqual(output);
   });
-  test('it should greet night', () => {
+  test('it should greet good night', () => {
     Date.now = jest.fn(() => new Date('2022-11-27T22:33:37.0'));
+    const geteter = new Greeter();
+    const output = 'Good night Amit';
+    expect(geteter.greet('amit ')).toEqual(output);
+  });
+  test('it should greet good night after midnight', () => {
+    Date.now = jest.fn(() => new Date('2022-11-27T00:33:37.0'));
     const geteter = new Greeter();
     const output = 'Good night Amit';
     expect(geteter.greet('amit ')).toEqual(output);
