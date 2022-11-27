@@ -1,6 +1,10 @@
 
 const capitalize = require('capitalize');
 const Moment = require('moment-timezone');
+const SIX = {hour: 6, minute: 0};
+const TWELVE = {hour: 12, minute: 0};
+const EIGHTEEN = {hour: 18, minute: 0};
+const TWENTY_TWO = {hour: 22, minute: 0};
 
 class Greeter {
   constructor() {
@@ -9,24 +13,18 @@ class Greeter {
   }
   greet(name) {
     if (
-      this.todaysDt.isSameOrAfter(new Moment()
-          .set('hour', '06').set('minute', '00')) &&
-        this.todaysDt.isSameOrBefore(new Moment()
-            .set('hour', '12').set('minute', '00'))
+      this.todaysDt.isSameOrAfter(new Moment().set(SIX)) &&
+        this.todaysDt.isSameOrBefore(new Moment().set(TWELVE))
     ) {
       return `Good morning ${this.capitalizeFirstLetter(name)}`;
     } else if (
-      this.todaysDt.isSameOrAfter(new Moment()
-          .set('hour', '18').set('minute', '00')) &&
-        this.todaysDt.isSameOrBefore(new Moment()
-            .set('hour', '22').set('minute', '00'))
+      this.todaysDt.isSameOrAfter(new Moment().set(EIGHTEEN)) &&
+        this.todaysDt.isSameOrBefore(new Moment().set(TWENTY_TWO))
     ) {
       return `Good evening ${this.capitalizeFirstLetter(name)}`;
     } else if (
-      this.todaysDt.isSameOrAfter(new Moment()
-          .set('hour', '22').set('minute', '00')) &&
-        this.todaysDt.isSameOrBefore(new Moment().add(1, 'days')
-            .set('hour', '06').set('minute', '00'))
+      this.todaysDt.isSameOrAfter(new Moment().set(TWENTY_TWO)) &&
+        this.todaysDt.isSameOrBefore(new Moment().add(1, 'days').set(SIX))
     ) {
       return `Good night ${this.capitalizeFirstLetter(name)}`;
     }
